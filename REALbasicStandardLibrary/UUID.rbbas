@@ -9,15 +9,24 @@ Protected Class UUID
 
 	#tag Method, Flags = &h0
 		Sub Constructor(uuidData as MemoryBlock)
-		  //creates UUID by copying data from uuidData.  I don't check uuidData.Size since a MemoryBlock 
+		  //creates UUID by copying data from uuidData.  I don't check uuidData.Size since a MemoryBlock
 		  //obtained from some other external function could
 		  //have size = -1.  So it's up to you to practice safe computing.
 		  
-		  declare sub uuid_copy lib libuuid (dst as Ptr, src as Ptr)
+		  #if targetMacOS or targetLinux
+		    declare sub uuid_copy lib libuuid (dst as Ptr, src as Ptr)
+		    
+		    dim dst as new MemoryBlock(uuidSize)
+		    uuid_copy(dst, uuidData)
+		    self.uuidData = dst
+		  #endif
 		  
-		  dim dst as new MemoryBlock(uuidSize)
-		  uuid_copy(dst, uuidData)
-		  self.uuidData = dst
+		  #if targetWin32
+		    //there doesn't appear to be a Windows function corresponding to uuid_copy.  So
+		    //I just copy the data.
+		    
+		    self.uuidData = uuidData.LeftB(uuidSize)
+		  #endif
 		End Sub
 	#tag EndMethod
 
