@@ -251,6 +251,7 @@ End
 		  #if targetMacOS
 		    dim ae as new AppleEvent("misc", "actv", "com.realsoftware.realstudio")
 		    dim b as Boolean = ae.Send
+		    #pragma unused b
 		  #endif
 		  #if targetWin32
 		    //figure out a good way to activate IDE.
