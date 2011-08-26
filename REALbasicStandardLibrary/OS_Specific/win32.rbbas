@@ -1,6 +1,11 @@
 #tag Module
 Protected Module win32
-	#tag Constant, Name = Kernel32, Type = String, Dynamic = False, Default = \"Kernel32", Scope = Private
+	#tag ExternalMethod, Flags = &h21
+		Private Declare Function GetCurrentProcessId Lib Kernel32 () As Integer
+	#tag EndExternalMethod
+
+
+	#tag Constant, Name = Kernel32, Type = String, Dynamic = False, Default = \"Kernel32", Scope = Protected
 	#tag EndConstant
 
 

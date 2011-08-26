@@ -8,6 +8,10 @@ Protected Module libc
 		Protected Declare Function dirname Lib libc (path as CString) As CString
 	#tag EndExternalMethod
 
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function getpid Lib libc () As Integer
+	#tag EndExternalMethod
+
 
 	#tag Constant, Name = libc, Type = String, Dynamic = False, Default = \"", Scope = Protected
 		#Tag Instance, Platform = Mac OS, Language = Default, Definition  = \"/usr/lib/libc.dylib"
