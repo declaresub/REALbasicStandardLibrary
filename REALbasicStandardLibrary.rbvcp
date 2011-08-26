@@ -30,6 +30,7 @@ Class=DateExtensionTests;REALbasicStandardLibrary/ClassExtensions/DateExtensionT
 Module=DictionaryExtension;REALbasicStandardLibrary/ClassExtensions/DictionaryExtension.rbbas;&h23A3541E;&h20F4EB1B;false
 Module=ExceptionExtension;REALbasicStandardLibrary/ClassExtensions/ExceptionExtension.rbbas;&h37E7D17F;&h20F4EB1B;false
 Module=FolderItemExtension;REALbasicStandardLibrary/ClassExtensions/FolderItemExtension.rbbas;&h7F7A5078;&h20F4EB1B;false
+Module=StringExtension;REALbasicStandardLibrary/ClassExtensions/StringExtension.rbbas;&h563348E6;&h20F4EB1B;false
 Module=TextEncodingExtension;REALbasicStandardLibrary/ClassExtensions/TextEncodingExtension.rbbas;&h546B472B;&h20F4EB1B;false
 Module=WindowExtension;REALbasicStandardLibrary/ClassExtensions/WindowExtension.rbbas;&h4F0DC4FF;&h20F4EB1B;false
 Class=OSError;REALbasicStandardLibrary/Exception Classes/OSError.rbbas;&h3912BEF;&h1E4BD129;false
