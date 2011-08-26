@@ -23,6 +23,7 @@ Module=macos;REALbasicStandardLibrary/OS_Specific/macos.rbbas;&h1DB0C87D;&h6A28D
 Module=win32;REALbasicStandardLibrary/OS_Specific/win32.rbbas;&h413AD76B;&h6A28D0FC;false
 Module=libc;REALbasicStandardLibrary/OS_Specific/libc.rbbas;&h7E1514E7;&h6A28D0FC;false
 Module=ApplicationExtension;REALbasicStandardLibrary/ClassExtensions/ApplicationExtension.rbbas;&h31AE652;&h20F4EB1B;false
+Module=DictionaryExtension;REALbasicStandardLibrary/ClassExtensions/DictionaryExtension.rbbas;&h23A3541E;&h20F4EB1B;false
 AppMenuBar=MenuBar1
 MajorVersion=1
 MinorVersion=0
