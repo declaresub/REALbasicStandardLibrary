@@ -5,7 +5,10 @@ Protected Module win32
 	#tag EndExternalMethod
 
 
-	#tag Constant, Name = Kernel32, Type = String, Dynamic = False, Default = \"Kernel32", Scope = Protected
+	#tag Constant, Name = Kernel32, Type = String, Dynamic = False, Default = \"Kernel32.dll", Scope = Protected
+	#tag EndConstant
+
+	#tag Constant, Name = Rpcrt4, Type = String, Dynamic = False, Default = \"Rpcrt4.dll", Scope = Protected
 	#tag EndConstant
 
 

@@ -8,11 +8,29 @@ Protected Class RealTestModuleUnitTests
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
+		Private Shared Sub FailingGreaterThanIntegerTest()
+		  dim Thirteen as Integer = 13
+		  dim Seventeen as Integer = 17
+		  
+		  Thirteen.ShouldBeGreaterThan Seventeen
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
 		Private Shared Sub FailingIntegerTest()
 		  dim actualvalue as Integer = 13
 		  dim expectedvalue as Integer = 17
 		  
 		  actualvalue.ShouldEqual expectedvalue
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub FailingLessThanIntegerTest()
+		  dim One as Integer = 1
+		  dim Zero as Integer = 0
+		  
+		  One.ShouldBeLessThan Zero
 		End Sub
 	#tag EndMethod
 
@@ -74,6 +92,38 @@ Protected Class RealTestModuleUnitTests
 		  actualValue.SQLDateTime = "2009-08-06 12:12:12"
 		  
 		  actualValue.ShouldBeAtMost expectedValue
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub Test_ShouldBeGreaterThan_Integer_Failure()
+		  dim t as ExceptionTestMethod = AddressOf FailingGreaterThanIntegerTest
+		  t.ShouldRaise GetTypeInfo(RealTestFailure)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		 Shared Sub Test_ShouldBeGreaterThan_Integer_Success()
+		  dim actualvalue as Integer = 1
+		  dim expectedvalue as Integer = 0
+		  
+		  actualvalue.ShouldBeGreaterThan expectedvalue
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub Test_ShouldBeLessThan_Integer_Failure()
+		  dim t as ExceptionTestMethod = AddressOf FailingLessThanIntegerTest
+		  t.ShouldRaise GetTypeInfo(RealTestFailure)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		 Shared Sub Test_ShouldBeLessThan_Integer_Success()
+		  dim actualvalue as Integer = 0
+		  dim expectedvalue as Integer = 1
+		  
+		  actualvalue.ShouldBeLessThan expectedvalue
 		End Sub
 	#tag EndMethod
 

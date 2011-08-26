@@ -179,6 +179,22 @@ Protected Module RealTestModule
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub ShouldBeGreaterThan(extends actualvalue as Integer, expectedvalue as Integer)
+		  if not (actualvalue > expectedvalue) then
+		    RaiseRealTestFailure actualValue, expectedvalue
+		  end if
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub ShouldBeLessThan(extends actualvalue as Integer, expectedvalue as Integer)
+		  if not (actualvalue < expectedvalue) then
+		    RaiseRealTestFailure actualValue, expectedvalue
+		  end if
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub ShouldBytewiseEqual(extends actualvalue as String, expectedvalue as String)
 		  if StrComp(actualvalue, expectedvalue, 0) <> 0 then
 		    RaiseRealTestFailure actualValue, expectedvalue

@@ -7,6 +7,7 @@ Folder=ClassExtensions;REALbasicStandardLibrary/ClassExtensions;&h20F4EB1B;&h440
 Folder=OS_Specific;REALbasicStandardLibrary/OS_Specific;&h6A28D0FC;&h440B1C34;false
 Folder=real.test;REALbasicStandardLibrary/real.test;&h1AD553;&h440B1C34;false
 Class=Tuple;REALbasicStandardLibrary/Tuple.rbbas;&h143175B4;&h440B1C34;false
+Class=UUID;REALbasicStandardLibrary/UUID.rbbas;&h74333446;&h440B1C34;false
 Class=App;ApplicationClasses/App.rbbas;&h492B4A6D;&h3568FE78;false
 Window=RealTestWindow;ApplicationClasses/RealTestWindow.rbfrm;&h6A72BFAD;&h3568FE78;false
 MenuBar=MenuBar1;ApplicationClasses/MenuBar1.rbmnu;&h5231DCEC;&h3568FE78;false
