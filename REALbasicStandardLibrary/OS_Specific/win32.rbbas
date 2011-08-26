@@ -1,7 +1,7 @@
 #tag Module
 Protected Module win32
-	#tag ExternalMethod, Flags = &h21
-		Private Declare Function GetCurrentProcessId Lib Kernel32 () As Integer
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function GetCurrentProcessId Lib Kernel32 () As Integer
 	#tag EndExternalMethod
 
 
