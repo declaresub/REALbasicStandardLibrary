@@ -32,6 +32,8 @@ Protected Module IDECommunicator
 		  
 		  #if not TargetHasGUI
 		    stderr.WriteLine "Socket error: " + str(errorCode)
+		  #else
+		    #pragma unused errorCode
 		  #endif
 		  
 		End Sub

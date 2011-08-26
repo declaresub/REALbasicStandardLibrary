@@ -215,6 +215,10 @@ End
 	#tag EndEvent
 	#tag Event
 		Function CellTextPaint(g As Graphics, row As Integer, column As Integer, x as Integer, y as Integer) As Boolean
+		  #pragma unused column
+		  #pragma unused x
+		  #pragma unused y
+		  
 		  if row < me.ListCount then
 		    dim d as Dictionary = me.RowTag(row)
 		    g.ForeColor = d.Value("TextColor")
