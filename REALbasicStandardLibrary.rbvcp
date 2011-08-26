@@ -26,6 +26,7 @@ Module=ApplicationExtension;REALbasicStandardLibrary/ClassExtensions/Application
 Module=DictionaryExtension;REALbasicStandardLibrary/ClassExtensions/DictionaryExtension.rbbas;&h23A3541E;&h20F4EB1B;false
 Module=ExceptionExtension;REALbasicStandardLibrary/ClassExtensions/ExceptionExtension.rbbas;&h37E7D17F;&h20F4EB1B;false
 Module=TextEncodingExtension;REALbasicStandardLibrary/ClassExtensions/TextEncodingExtension.rbbas;&h546B472B;&h20F4EB1B;false
+Module=WindowExtension;REALbasicStandardLibrary/ClassExtensions/WindowExtension.rbbas;&h4F0DC4FF;&h20F4EB1B;false
 AppMenuBar=MenuBar1
 MajorVersion=1
 MinorVersion=0
