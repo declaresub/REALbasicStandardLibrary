@@ -8,6 +8,7 @@ Folder=Exception Classes;REALbasicStandardLibrary/Exception Classes;&h1E4BD129;&
 Module=Networking;REALbasicStandardLibrary/Networking.rbbas;&h4EF707A3;&h440B1C34;false
 Folder=OS_Specific;REALbasicStandardLibrary/OS_Specific;&h6A28D0FC;&h440B1C34;false
 Folder=real.test;REALbasicStandardLibrary/real.test;&h1AD553;&h440B1C34;false
+Class=Set;REALbasicStandardLibrary/Set.rbbas;&h36D9A1D;&h440B1C34;false
 Class=Tuple;REALbasicStandardLibrary/Tuple.rbbas;&h143175B4;&h440B1C34;false
 Class=UUID;REALbasicStandardLibrary/UUID.rbbas;&h74333446;&h440B1C34;false
 Class=App;ApplicationClasses/App.rbbas;&h492B4A6D;&h3568FE78;false
