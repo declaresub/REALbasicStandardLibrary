@@ -1,10 +1,5 @@
 #tag Module
 Protected Module macos
-	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CFRelease Lib CarbonFramework (cf as Ptr)
-	#tag EndExternalMethod
-
-
 	#tag Constant, Name = CarbonFramework, Type = String, Dynamic = False, Default = \"Carbon.framework", Scope = Public
 	#tag EndConstant
 

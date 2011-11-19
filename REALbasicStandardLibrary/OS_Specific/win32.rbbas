@@ -15,6 +15,18 @@ Protected Module win32
 	#tag Constant, Name = Normaliz, Type = String, Dynamic = False, Default = \"Normaliz.dll", Scope = Protected
 	#tag EndConstant
 
+	#tag Constant, Name = NormalizationC, Type = Double, Dynamic = False, Default = \"1", Scope = Protected
+	#tag EndConstant
+
+	#tag Constant, Name = NormalizationD, Type = Double, Dynamic = False, Default = \"2", Scope = Protected
+	#tag EndConstant
+
+	#tag Constant, Name = NormalizationKC, Type = Double, Dynamic = False, Default = \"5", Scope = Protected
+	#tag EndConstant
+
+	#tag Constant, Name = NormalizationKD, Type = Double, Dynamic = False, Default = \"6", Scope = Protected
+	#tag EndConstant
+
 	#tag Constant, Name = Rpcrt4, Type = String, Dynamic = False, Default = \"Rpcrt4.dll", Scope = Protected
 	#tag EndConstant
 

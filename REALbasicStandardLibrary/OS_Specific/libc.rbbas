@@ -37,7 +37,7 @@ Protected Module libc
 		  //Because tm is declared with public visibility, one cannot write
 		  //p.tm
 		  //outside the module.  Nor does
-		  //p.libc.tm 
+		  //p.libc.tm
 		  //work.  This function implements a workaround.
 		  
 		  return p.tm
