@@ -137,7 +137,7 @@ Protected Class UUID
 		  #endif
 		  
 		  #if targetWin32
-		    soft declare function UuidCompare lib libc.Rpcrt4 (Uuid1 as Ptr, Uuid2 as Ptr, ByRef status as Integer) as Integer
+		    soft declare function UuidCompare lib win32.Rpcrt4 (Uuid1 as Ptr, Uuid2 as Ptr, ByRef status as Integer) as Integer
 		    
 		    dim result as Integer
 		    dim cmp as Integer = UuidCompare(self.uuidData, u2.uuidData, result)
@@ -162,7 +162,7 @@ Protected Class UUID
 		  #endif
 		  
 		  #if targetWin32
-		    soft declare function UuidToStringA lib Rpcrt4 (Uuid as CString, ByRef StringUuid as Ptr) as Integer
+		    soft declare function UuidToStringA lib win32.Rpcrt4 (Uuid as CString, ByRef StringUuid as Ptr) as Integer
 		    
 		    dim stringuuid as Ptr
 		    dim value as String
@@ -172,7 +172,7 @@ Protected Class UUID
 		        dim m as MemoryBlock = stringuuid
 		        value = DefineEncoding(m.CString(0), Encodings.ASCII)
 		      finally
-		        soft declare function RpcStringFreeA lib Rpcrt4 (ByRef p as Ptr) as Integer
+		        soft declare function RpcStringFreeA lib win32.Rpcrt4 (ByRef p as Ptr) as Integer
 		        dim freeErr as Integer = RpcStringFreeA(stringuuid)
 		      end try
 		    else
