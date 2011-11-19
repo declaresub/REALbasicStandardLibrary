@@ -27,9 +27,9 @@ Protected Module FolderItemExtension
 		  #if targetLinux
 		    #pragma disableBackgroundTasks
 		    
-		    soft declare function opendir lib libc (dirname as CString) as Ptr
-		    soft declare function readdir lib libc (dirp as Ptr) as Ptr
-		    soft declare function closedir lib libc (dirp as Ptr) as Integer
+		    soft declare function opendir lib libc.libc (dirname as CString) as Ptr
+		    soft declare function readdir lib libc.libc (dirp as Ptr) as Ptr
+		    soft declare function closedir lib libc.libc (dirp as Ptr) as Integer
 		    
 		    
 		    dim names() as String
@@ -90,7 +90,6 @@ Protected Module FolderItemExtension
 		  #if targetMacOS
 		    soft declare function CFURLCreateWithString lib CarbonFramework (allocator as Ptr, URLString as CFStringRef, baseURL as Ptr) as Ptr
 		    soft declare function CFURLGetFSRef lib CarbonFramework (url as Ptr, byRef f as FSRef) as Boolean
-		    soft declare sub CFRelease lib CarbonFramework (cf as Ptr)
 		    soft declare function FSOpenIterator lib CarbonFramework (ByRef container as FSRef, iteratorFlags as UInt32, ByRef iterator as Ptr) as Int16
 		    soft declare function FSCloseIterator lib CarbonFramework (iterator as Ptr) as Int16
 		    soft declare function FSGetCatalogInfoBulk lib CarbonFramework (iterator as Ptr, maximumObjects as UInt32, ByRef actualObjects as Integer, ByRef containerChanged as Boolean, whichInfo as UInt32, catalogInfos as Ptr, refs as Ptr, specs as Ptr, names as Ptr) as Int16
@@ -111,7 +110,7 @@ Protected Module FolderItemExtension
 		      end if
 		      
 		    finally
-		      CFRelease urlPtr
+		      CoreFoundation.Release(urlPtr)
 		      urlPtr = nil
 		    end try
 		    
@@ -158,7 +157,7 @@ Protected Module FolderItemExtension
 		                  theItem = nil
 		                end if
 		              finally
-		                CFRelease p
+		                CoreFoundation.Release(p)
 		                p = nil
 		              end try
 		            else
