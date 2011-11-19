@@ -127,7 +127,7 @@ Protected Class Set
 		    if isInIntersection then
 		      d.Value(element) = nil
 		    end if
-		  next 
+		  next
 		  
 		  dim U as new Set
 		  U.Map = d
@@ -176,24 +176,7 @@ Protected Class Set
 
 	#tag Method, Flags = &h0
 		Function Operator_Xor(T as Set) As Set
-		  //S xor T returns the symmetric difference  -- elements in S or in T but not in both.
-		  
-		  dim d as new Dictionary
-		  
-		  for each element as Variant in self.Map.Keys
-		    if not T.Map.HasKey(element) then
-		      d.Value(element) = nil
-		    end if
-		  next
-		  for each element as Variant in T.Map.Keys
-		    if not self.Map.HasKey(element) then
-		      d.Value(element) = nil
-		    end if
-		  next
-		  
-		  dim U as new Set
-		  U.Map = d
-		  return U
+		  return self.Symmetric_DIfference(T)
 		End Function
 	#tag EndMethod
 
@@ -228,7 +211,26 @@ Protected Class Set
 
 	#tag Method, Flags = &h0
 		Function Symmetric_DIfference(T as Set) As Set
-		  return S - T
+		  if T = nil then
+		    T = new Set()
+		  end if
+		  
+		  dim d as new Dictionary
+		  
+		  for each element as Variant in self.Map.Keys
+		    if not T.Map.HasKey(element) then
+		      d.Value(element) = nil
+		    end if
+		  next
+		  for each element as Variant in T.Map.Keys
+		    if not self.Map.HasKey(element) then
+		      d.Value(element) = nil
+		    end if
+		  next
+		  
+		  dim U as new Set
+		  U.Map = d
+		  return U
 		End Function
 	#tag EndMethod
 
@@ -305,8 +307,8 @@ Protected Class Set
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		 Shared Sub Test_Operator_Subtract()
+	#tag Method, Flags = &h21
+		Private Shared Sub Test_Operator_Subtract()
 		  dim S as new Set(1, 2, 3)
 		  dim T as new Set(2, 3)
 		  dim U as Set = S - T
