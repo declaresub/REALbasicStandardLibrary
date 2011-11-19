@@ -54,7 +54,19 @@ Inherits OSError
 	#tag Constant, Name = ERROR_FILE_NOT_FOUND, Type = Double, Dynamic = False, Default = \"2", Scope = Public
 	#tag EndConstant
 
+	#tag Constant, Name = ERROR_INSUFFICIENT_BUFFER, Type = Double, Dynamic = False, Default = \"122", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = ERROR_INVALID_PARAMETER, Type = Double, Dynamic = False, Default = \"87", Scope = Public
+	#tag EndConstant
+
 	#tag Constant, Name = ERROR_NO_MORE_FILES, Type = Double, Dynamic = False, Default = \"18", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = ERROR_NO_UNICODE_TRANSLATION, Type = Double, Dynamic = False, Default = \"1113", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = ERROR_SUCCESS, Type = Double, Dynamic = False, Default = \"0", Scope = Public
 	#tag EndConstant
 
 	#tag Constant, Name = RPC_S_INVALID_STRING_UUID, Type = Double, Dynamic = False, Default = \"1705", Scope = Public
