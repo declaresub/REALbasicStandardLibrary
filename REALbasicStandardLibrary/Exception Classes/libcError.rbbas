@@ -11,7 +11,7 @@ Inherits OSError
 	#tag Method, Flags = &h0
 		 Shared Function ErrorMessage(code as Integer) As String
 		  #if targetLinux
-		    soft declare function strerror Lib libc (errcode as Integer)  as Ptr
+		    soft declare function strerror Lib libc.libc (errcode as Integer)  as Ptr
 		    
 		    dim errorMsg as MemoryBlock = strerror(code)
 		    if errorMsg <> nil then
@@ -30,7 +30,7 @@ Inherits OSError
 	#tag Method, Flags = &h0
 		 Shared Function GetErrorCode() As Integer
 		  #if TargetLinux
-		    soft declare function libcErrorCode lib libc alias "__errno_location" () as Ptr
+		    soft declare function libcErrorCode lib libc.libc alias "__errno_location" () as Ptr
 		    
 		    dim m as MemoryBlock = libcErrorCode()
 		    if m is nil then
