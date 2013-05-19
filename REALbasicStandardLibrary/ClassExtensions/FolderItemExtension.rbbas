@@ -88,29 +88,27 @@ Protected Module FolderItemExtension
 		  //I assume that dir is in fact a directory.
 		  
 		  #if targetMacOS
-		    soft declare function CFURLCreateWithString lib CarbonFramework (allocator as Ptr, URLString as CFStringRef, baseURL as Ptr) as Ptr
-		    soft declare function CFURLGetFSRef lib CarbonFramework (url as Ptr, byRef f as FSRef) as Boolean
-		    soft declare function FSOpenIterator lib CarbonFramework (ByRef container as FSRef, iteratorFlags as UInt32, ByRef iterator as Ptr) as Int16
+		    soft declare function FSOpenIterator lib CarbonFramework (ByRef container as macos.carbon.fsref, iteratorFlags as UInt32, ByRef iterator as Ptr) as Int16
 		    soft declare function FSCloseIterator lib CarbonFramework (iterator as Ptr) as Int16
 		    soft declare function FSGetCatalogInfoBulk lib CarbonFramework (iterator as Ptr, maximumObjects as UInt32, ByRef actualObjects as Integer, ByRef containerChanged as Boolean, whichInfo as UInt32, catalogInfos as Ptr, refs as Ptr, specs as Ptr, names as Ptr) as Int16
-		    soft declare function CFURLCreateFromFSRef lib CarbonFramework (allocator as Ptr, byRef f as FSRef) as Ptr
+		    soft declare function CFURLCreateFromFSRef lib CarbonFramework (allocator as Ptr, byRef f as macos.carbon.fsref) as Ptr
 		    soft declare function CFURLGetString lib CarbonFramework (anURL as Ptr) as Ptr
 		    soft declare function CFRetain lib CarbonFramework (cf as Ptr) as CFStringRef
 		    
 		    
-		    dim urlPtr as Ptr = CFURLCreateWithString(nil, dir.URLPath, nil)
+		    dim urlPtr as Ptr = macos.cfurl.CreateWithString(nil, dir.URLPath, nil)
 		    if urlPtr = nil then
 		      raise new MacOSError("CFURLCreateWithString returned nil.")
 		    end if
 		    
-		    dim myRef as FSRef
+		    dim myRef as macos.carbon.FSRef
 		    try
-		      if not CFURLGetFSRef(urlPtr, myRef) then
+		      if not macos.cfurl.GetFSRef(urlPtr, myRef) then
 		        raise new MacOSError("CFURLGetFSRef returned false.")
 		      end if
 		      
 		    finally
-		      CoreFoundation.Release(urlPtr)
+		      macos.cf.Release(urlPtr)
 		      urlPtr = nil
 		    end try
 		    
@@ -133,7 +131,7 @@ Protected Module FolderItemExtension
 		    
 		    try
 		      const MaxObjectCount = 256
-		      dim FSRefArray as new MemoryBlock(FSRef.Size*MaxObjectCount)
+		      dim FSRefArray as new MemoryBlock(macos.carbon.fsref.Size*MaxObjectCount)
 		      do
 		        dim actualObjectCount as Integer
 		        dim containerChanged as Boolean
@@ -144,7 +142,7 @@ Protected Module FolderItemExtension
 		        dim offset as Integer = 0
 		        for i as Integer = 1 to actualObjectCount
 		          #if RbVersion >= 2010.05
-		            dim theItem as FolderItem = FolderItem.CreateFromMacFSRef(FSRefPtr.FSRef(offset).StringValue(targetLittleEndian))
+		            dim theItem as FolderItem = FolderItem.CreateFromMacFSRef(FSRefPtr.Ptr(offset))
 		          #else
 		            dim theItem as FolderItem
 		            dim p as Ptr = CFURLCreateFromFSRef(nil, theFSRef)
@@ -157,7 +155,7 @@ Protected Module FolderItemExtension
 		                  theItem = nil
 		                end if
 		              finally
-		                CoreFoundation.Release(p)
+		                macos.cf.Release(p)
 		                p = nil
 		              end try
 		            else
@@ -165,7 +163,7 @@ Protected Module FolderItemExtension
 		            end if
 		          #endif
 		          
-		          offset = offset + FSRef.Size
+		          offset = offset + macos.carbon.FSRef.Size
 		          if theItem <> nil then
 		            theList.Append theItem
 		          end if
@@ -333,10 +331,6 @@ Protected Module FolderItemExtension
 		  rsrcPhysicalSize as UInt64
 		  valence as UInt32
 		textEncodingHint as UInt32
-	#tag EndStructure
-
-	#tag Structure, Name = FSRef, Flags = &h21
-		hidden(79) as UInt8
 	#tag EndStructure
 
 	#tag Structure, Name = UTCDateTime, Flags = &h21

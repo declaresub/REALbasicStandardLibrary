@@ -73,22 +73,25 @@ Protected Module StringExtension
 		    soft declare function CFStringGetMaximumSizeForEncoding lib CarbonFramework (length as Integer, enc as Integer) as Integer
 		    soft declare function CFStringGetCString lib CarbonFramework (theString as Ptr, buffer as Ptr, bufferSize as Integer, enc as Integer) as Boolean
 		    
-		    dim code as Integer = s.Encoding.code
-		    dim p as Ptr = CoreFoundation.StringCreateMutable(nil, 0)
+		    dim p as Ptr = MacOS.CFString.CreateMutable(nil, 0)
 		    if p = nil then
 		      return ""
 		    end if
-		    CoreFoundation.StringAppendCString(p, s, Encoding(s).code)
-		    CoreFoundation.StringNormalize(p, form)
-		    
-		    dim buffer as new MemoryBlock(1 + CFStringGetMaximumSizeForEncoding(CoreFoundation.StringGetLength(p), code))
 		    dim normalizedString as String
-		    if CFStringGetCString(p, buffer, buffer.Size, code) then
-		      normalizedString = DefineEncoding(buffer.CString(0), s.Encoding)
-		    else
-		      normalizedString = ""
-		    end if
-		    CoreFoundation.Release(p)
+		    try
+		      MacOS.CFString.AppendCString(p, s, Encoding(s).code)
+		      MacOS.CFString.Normalize(p, form)
+		      return MacOS.CFString.RbString(p)
+		      
+		      dim buffer as new MemoryBlock(1 + CFStringGetMaximumSizeForEncoding(macos.cfstring.GetLength(p), Encoding(s).code))
+		      if CFStringGetCString(p, buffer, buffer.Size, Encoding(s).code) then
+		        normalizedString = DefineEncoding(buffer.CString(0), s.Encoding)
+		      else
+		        normalizedString = ""
+		      end if
+		    finally
+		      macos.cf.Release(p)
+		    end try
 		    return normalizedString
 		  #endif
 		  
@@ -153,7 +156,7 @@ Protected Module StringExtension
 	#tag Method, Flags = &h0
 		Function NormalizedFormC(extends s as String) As String
 		  #if targetMacOS
-		    const normalizationForm = CoreFoundation.StringNormalizationFormC
+		    const normalizationForm = macos.cf.StringNormalizationFormC
 		  #endif
 		  #if targetWin32
 		    const normalizationForm = win32.NormalizationC
@@ -169,7 +172,7 @@ Protected Module StringExtension
 	#tag Method, Flags = &h0
 		Function NormalizedFormD(extends s as String) As String
 		  #if targetMacOS
-		    const normalizationForm = CoreFoundation.StringNormalizationFormD
+		    const normalizationForm = macos.cf.StringNormalizationFormD
 		  #endif
 		  #if targetWin32
 		    const normalizationForm = win32.NormalizationD
@@ -185,7 +188,7 @@ Protected Module StringExtension
 	#tag Method, Flags = &h0
 		Function NormalizedFormKC(extends s as String) As String
 		  #if targetMacOS
-		    const normalizationForm = CoreFoundation.StringNormalizationFormKC
+		    const normalizationForm = macos.cf.StringNormalizationFormKC
 		  #endif
 		  #if targetWin32
 		    const normalizationForm = win32.NormalizationKC
@@ -201,7 +204,7 @@ Protected Module StringExtension
 	#tag Method, Flags = &h0
 		Function NormalizedFormKD(extends s as String) As String
 		  #if targetMacOS
-		    const normalizationForm = CoreFoundation.StringNormalizationFormKD
+		    const normalizationForm = macos.cf.StringNormalizationFormKD
 		  #endif
 		  #if targetWin32
 		    const normalizationForm = win32.NormalizationKD

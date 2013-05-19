@@ -207,7 +207,7 @@ End
 		  if d <> nil then
 		    dim testResults() as Dictionary = d.Value("TestResults")
 		    for each testResult as Dictionary in testResults
-		      me.AddRow testResult.Value("Name")
+		      me.AddRow testResult.Value("Name").stringValue
 		      me.RowTag(me.LastIndex) = testResult
 		    next
 		  end if
