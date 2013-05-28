@@ -1,0 +1,38 @@
+====================
+TimeZone
+====================
+
+
+    The TimeZone wraps the IANA time zone database into a REALbasic class.  This is the 
+    information used in Linux, and in MacOS (through CFTImeZone and NSTImeZone).  Since Windows
+    time zone support is not all that it might be, using the IANA information on all platforms
+    provides uniform functionality.
+    
+
+    :Platforms: 
+        Mac OS, 
+        Linux, 
+        Windows
+            
+            
+    :Build Types: 
+        Desktop, 
+        Console, 
+        Web
+           
+
+Methods
+-------
+
+Shared Function **ApplicationTimeZone**\() As TimeZone
+
+Shared Function **Get**\(name as String) As TimeZone
+
+Shared Function **Names**\() As String()
+
+    Returns a list of all time zone names.  Pass one of them to Get to retrieve the 
+    corresponding TimeZone object.
+
+Shared Function **SystemTimeZone**\() As TimeZone
+
+

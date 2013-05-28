@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>TimeZone &mdash; REALbasicStandardLibrary  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="REALbasicStandardLibrary  documentation" href="../index.html" />
+    <link rel="prev" title="ApplicationExtension" href="../applicationextension.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../applicationextension.html" title="ApplicationExtension"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">REALbasicStandardLibrary  documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="timezone">
+<h1>TimeZone<a class="headerlink" href="#timezone" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>The TimeZone wraps the IANA time zone database into a REALbasic class.  This is the
+information used in Linux, and in MacOS (through CFTImeZone and NSTImeZone).  Since Windows
+time zone support is not all that it might be, using the IANA information on all platforms
+provides uniform functionality.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Platforms:</th><td class="field-body">Mac OS,
+Linux,
+Windows</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Build Types:</th><td class="field-body">Desktop,
+Console,
+Web</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<div class="section" id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt><strong>Name</strong> As String (Read-Only)</dt>
+<dd>Returns the time zone name.</dd>
+</dl>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Shared Function <strong>ApplicationTimeZone</strong>() As TimeZone</dt>
+<dd>In Mac OS builds, returns the time zone set for the application, or the system time zone
+if no application time zone was set.  In Linux builds, returns the system time zone.</dd>
+<dt>Shared Function <strong>Get</strong>(name as String) As TimeZone</dt>
+<dd>Returns the TimeZone object for <tt class="docutils literal"><span class="pre">name</span></tt>.  If no match is found, returns nil.</dd>
+<dt>Shared Function <strong>Names</strong>() As String()</dt>
+<dd>Returns a list of all time zone names.  Pass one of them to Get to retrieve the
+corresponding TimeZone object.</dd>
+<dt>Shared Function <strong>SystemTimeZone</strong>() As TimeZone</dt>
+<dd>Returns the system time zone.</dd>
+<dt>Function <strong>Abbreviation</strong>(d as Date=nil) As String</dt>
+<dd>Returns the time zone abbreviation (e.g. EST, EDT) for the date passed.  If no date is
+passed, then the current date is used.</dd>
+<dt>Function <strong>IsDST</strong>(d as Date=nil) As Boolean</dt>
+<dd>Returns true if the date passed lies within Daylight Savings Time.  If no date is
+passed, then the current date is used.</dd>
+<dt>Function <strong>Offset</strong>(d as Date=nil) As Double</dt>
+<dd>Returns the GMT offset in seconds.  West of GMT = negative; East of GMT = positive.  The
+offset is adjusted for Daylight Savings Time. If no date is passed, then the current date is used.</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">TimeZone</a><ul>
+<li><a class="reference internal" href="#properties">Properties</a></li>
+<li><a class="reference internal" href="#methods">Methods</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../applicationextension.html"
+                        title="previous chapter">ApplicationExtension</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../applicationextension.html" title="ApplicationExtension"
+             >previous</a> |</li>
+        <li><a href="../index.html">REALbasicStandardLibrary  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Charles Yeomans.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>

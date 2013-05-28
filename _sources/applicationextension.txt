@@ -1,0 +1,31 @@
+====================
+ApplicationExtension
+====================
+
+
+    The ApplicationExtension module contains methods that extend the Application class.
+
+
+Methods
+-------
+
+Sub **PID**\(extends theApp as Application) as Integer
+
+    :Platforms: 
+        Mac OS, 
+        Linux, 
+        Windows
+            
+            
+    :Build Types: 
+        Desktop, 
+        Console, 
+        Web
+
+
+    PID returns the process identifier of the process.
+
+
+    ::
+        
+        System.Log System.LogLevelInfo, "Process " + Str(App.PID) + " launched."

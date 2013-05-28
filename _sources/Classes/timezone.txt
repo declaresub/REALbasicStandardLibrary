@@ -1,0 +1,58 @@
+====================
+TimeZone
+====================
+
+
+    The TimeZone wraps the IANA time zone database into a REALbasic class.  This is the 
+    information used in Linux, and in MacOS (through CFTImeZone and NSTImeZone).  Since Windows
+    time zone support is not all that it might be, using the IANA information on all platforms
+    provides uniform functionality.
+    
+
+    :Platforms: 
+        Mac OS, 
+        Linux, 
+        Windows
+            
+            
+    :Build Types: 
+        Desktop, 
+        Console, 
+        Web
+
+
+Properties
+----------
+
+**Name** As String (Read-Only)
+    Returns the time zone name.
+           
+
+Methods
+-------
+
+Shared Function **ApplicationTimeZone**\() As TimeZone
+    In Mac OS builds, returns the time zone set for the application, or the system time zone
+    if no application time zone was set.  In Linux builds, returns the system time zone.
+
+Shared Function **Get**\(name as String) As TimeZone
+    Returns the TimeZone object for ``name``.  If no match is found, returns nil.
+
+Shared Function **Names**\() As String()
+    Returns a list of all time zone names.  Pass one of them to Get to retrieve the 
+    corresponding TimeZone object.
+
+Shared Function **SystemTimeZone**\() As TimeZone
+    Returns the system time zone.
+
+Function **Abbreviation**\(d as Date=nil) As String
+    Returns the time zone abbreviation (e.g. EST, EDT) for the date passed.  If no date is 
+    passed, then the current date is used.
+
+Function **IsDST**\(d as Date=nil) As Boolean
+    Returns true if the date passed lies within Daylight Savings Time.  If no date is
+    passed, then the current date is used.
+    
+Function **Offset**\(d as Date=nil) As Double
+  Returns the GMT offset in seconds.  West of GMT = negative; East of GMT = positive.  The 
+  offset is adjusted for Daylight Savings Time. If no date is passed, then the current date is used.
