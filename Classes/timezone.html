@@ -56,7 +56,7 @@
 <h1>TimeZone<a class="headerlink" href="#timezone" title="Permalink to this headline">¶</a></h1>
 <blockquote>
 <div><p>The TimeZone wraps the IANA time zone database into a REALbasic class.  This is the
-information used in Linux, and in MacOS (through CFTImeZone and NSTImeZone).  Since Windows
+information used in Linux and in MacOS (through CFTImeZone and NSTImeZone).  Since Windows
 time zone support is not all that it might be, using the IANA information on all platforms
 provides uniform functionality.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -86,14 +86,17 @@ Web</td>
 <dl class="docutils">
 <dt>Shared Function <strong>ApplicationTimeZone</strong>() As TimeZone</dt>
 <dd>In Mac OS builds, returns the time zone set for the application, or the system time zone
-if no application time zone was set.  In Linux builds, returns the system time zone.</dd>
+if no application time zone was set.  In Linux and Windows builds, returns the system time zone.</dd>
 <dt>Shared Function <strong>Get</strong>(name as String) As TimeZone</dt>
-<dd>Returns the TimeZone object for <tt class="docutils literal"><span class="pre">name</span></tt>.  If no match is found, returns nil.</dd>
+<dd>Returns the TimeZone object for <tt class="docutils literal"><span class="pre">name</span></tt>.  If no match is found, returns nil.  In addition
+to the names returned by <strong>Names</strong>, TimeZone objects are returned for common abbreviations (EST, EDT, GMT, etc.)</dd>
 <dt>Shared Function <strong>Names</strong>() As String()</dt>
 <dd>Returns a list of all time zone names.  Pass one of them to Get to retrieve the
 corresponding TimeZone object.</dd>
 <dt>Shared Function <strong>SystemTimeZone</strong>() As TimeZone</dt>
 <dd>Returns the system time zone.</dd>
+<dt>Shared Function <strong>WindowsNames</strong>() as String()</dt>
+<dd>In Windows builds, returns the time zone names from the registry.</dd>
 <dt>Function <strong>Abbreviation</strong>(d as Date=nil) As String</dt>
 <dd>Returns the time zone abbreviation (e.g. EST, EDT) for the date passed.  If no date is
 passed, then the current date is used.</dd>
