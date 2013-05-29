@@ -183,7 +183,7 @@ Protected Module TextEncodingExtension
 
 	#tag Method, Flags = &h0
 		Function TAB(extends t as TextEncoding) As String
-		  return t.Chr(8)
+		  return t.Chr(9)
 		End Function
 	#tag EndMethod
 
