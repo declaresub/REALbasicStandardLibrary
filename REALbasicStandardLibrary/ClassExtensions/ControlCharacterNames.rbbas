@@ -1,5 +1,5 @@
 #tag Module
-Protected Module TextEncodingExtension
+Protected Module ControlCharacterNames
 	#tag Method, Flags = &h0
 		Function ACK(extends t as TextEncoding) As String
 		  return t.Chr(6)
