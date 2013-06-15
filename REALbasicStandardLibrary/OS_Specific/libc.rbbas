@@ -12,8 +12,8 @@ Protected Module libc
 		Protected Declare Function getpid Lib libc () As Integer
 	#tag EndExternalMethod
 
-	#tag ExternalMethod, Flags = &h0
-		Declare Function gmtime Lib libc (ByRef t as Integer) As Ptr
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function gmtime Lib libc (ByRef t as Integer) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
@@ -28,8 +28,8 @@ Protected Module libc
 		Protected Declare Function strftime Lib libc (s as Ptr, maxsize as Integer, format as CString, ByRef timeptr as tm) As Integer
 	#tag EndExternalMethod
 
-	#tag ExternalMethod, Flags = &h0
-		Declare Function strptime Lib libc (buf as CString, format as CString, ByRef tm_value as tm) As Ptr
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function strptime Lib libc (buf as CString, format as CString, ByRef tm_value as tm) As Ptr
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h0
