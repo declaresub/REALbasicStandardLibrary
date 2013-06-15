@@ -83,5 +83,17 @@ Begin Menu MenuBar1
          AutoEnable = True
       End
    End
+   Begin MenuItem ExamplesMenu
+      SpecialMenu = 0
+      Text = "Examples"
+      Index = -2147483648
+      AutoEnable = True
+      Begin MenuItem ExamplesTimeZones
+         SpecialMenu = 0
+         Text = "TimeZones"
+         Index = -2147483648
+         AutoEnable = True
+      End
+   End
 End
 #tag EndMenu

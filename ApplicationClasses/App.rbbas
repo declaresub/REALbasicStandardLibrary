@@ -10,6 +10,14 @@ Inherits Application
 	#tag EndEvent
 
 
+	#tag MenuHandler
+		Function ExamplesTimeZones() As Boolean Handles ExamplesTimeZones.Action
+			TimeZones.Show
+			return true
+		End Function
+	#tag EndMenuHandler
+
+
 	#tag Constant, Name = kEditClear, Type = String, Dynamic = False, Default = \"&Delete", Scope = Public
 		#Tag Instance, Platform = Windows, Language = Default, Definition  = \"&Delete"
 		#Tag Instance, Platform = Linux, Language = Default, Definition  = \"&Delete"
