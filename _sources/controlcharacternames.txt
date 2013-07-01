@@ -1,0 +1,107 @@
+=====================
+ControlCharacterNames
+=====================
+
+
+    The ControlCharacterNames module adds named versions of the ASCII control characters that 
+    extend the TextEncoding class. This module may be handy when working with Serial objects.
+
+
+Methods
+-------
+
+Function **ACK**\(extends t as TextEncoding) As String
+    Returns Chr(6).
+
+Function **BEL**\(extends t as TextEncoding) As String
+    Returns Chr(7).
+    
+Function **BS**\(extends t as TextEncoding) As String
+    Returns Chr(8).
+    
+Function **CAN**\(extends t as TextEncoding) As String
+    Returns Chr(24).
+
+Function **CR**\(extends t as TextEncoding) As String
+    Returns Chr(13).
+    
+Function **DC1**\(extends t as TextEncoding) As String
+    Returns Chr(17).
+    
+Function **DC2**\(extends t as TextEncoding) As String
+    Returns Chr(18).
+    
+Function **DC3**\(extends t as TextEncoding) As String
+    Returns Chr(19).
+    
+Function **DC4**\(extends t as TextEncoding) As String
+    Returns Chr(20).
+    
+Function **DEL**\(extends t as TextEncoding) As String
+    Returns Chr(127).
+
+Function **DLE**\(extends t as TextEncoding) As String
+    Returns Chr(16).
+    
+Function **EM**\(extends t as TextEncoding) As String
+    Returns Chr(25).
+    
+Function **ENQ**\(extends t as TextEncoding) As String
+    Returns Chr(5).
+
+Function **EOT**\(extends t as TextEncoding) As String
+    Returns Chr(4).
+    
+Function **ESC**\(extends t as TextEncoding) As String
+    Returns Chr(27).
+    
+Function **ETB**\(extends t as TextEncoding) As String
+    Returns Chr(23).
+    
+Function **ETX**\(extends t as TextEncoding) As String
+    Returns Chr(3).
+    
+Function **FF**\(extends t as TextEncoding) As String
+    Returns Chr(12).
+    
+Function **FS**\(extends t as TextEncoding) As String
+    Returns Chr(28).
+
+Function **GS**\(extends t as TextEncoding) As String
+    Returns Chr(29).
+    
+Function **LF**\(extends t as TextEncoding) As String
+    Returns Chr(10).
+    
+Function **NAK**\(extends t as TextEncoding) As String
+    Returns Chr(21).
+
+Function **NUL**\(extends t as TextEncoding) As String
+    Returns Chr(0).
+    
+Function **RS**\(extends t as TextEncoding) As String
+    Returns Chr(30).
+    
+Function **SI**\(extends t as TextEncoding) As String
+    Returns Chr(15).
+    
+Function **SO**\(extends t as TextEncoding) As String
+    Returns Chr(14).
+    
+Function **SOH**\(extends t as TextEncoding) As String
+    Returns Chr(1).
+    
+Function **SUB_**\(extends t as TextEncoding) As String
+    Returns Chr(26). ``SUB`` is a reserved word, hence the trailing underscore.
+
+Function **SYN**\(extends t as TextEncoding) As String
+    Returns Chr(1226).
+    
+Function **TAB**\(extends t as TextEncoding) As String
+    Returns Chr(9).
+    
+Function **US**\(extends t as TextEncoding) As String
+    Returns Chr(31).
+
+Function **VT**\(extends t as TextEncoding) As String
+    Returns Chr(11).

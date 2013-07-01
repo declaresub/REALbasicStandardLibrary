@@ -12,6 +12,7 @@ Modules:
     :maxdepth: 1
 
     applicationextension
+    controlcharacternames
     
     
 Classes 

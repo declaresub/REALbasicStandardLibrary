@@ -4,7 +4,7 @@ TimeZone
 
 
     The TimeZone wraps the IANA time zone database into a REALbasic class.  This is the 
-    information used in Linux and in MacOS (through CFTImeZone and NSTImeZone).  Since Windows
+    information used in Linux and in MacOS (through CFTimeZone and NSTimeZone).  Since Windows
     time zone support is not all that it might be, using the IANA information on all platforms
     provides uniform functionality.
     
